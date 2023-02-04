@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col lg-8 offset-lg2">
+            <div class="card">
+                <div>&nbsp;</div>
+
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link " aria-current="page" routerLink="/nuevo">Nuevo</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" routerLink="/listado">Listados</a>
+                    </li>
+                </ul>
+
+                <div class="card-body">
+                    <span>LISTADO DE ESTUDIANTES</span>
+
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Nota1</th>
+                            <th scope="col">Nota2</th>
+                            <th scope="col">Nota3</th>
+                            <th scope="col">Actualizar</th>
+                            <th scope="col">Eliminar</th>
+                            <th scope="col">Ver Estadisticas</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let estudiante of listEstudiantes">
+                            <td>{{ estudiante._id }}</td>
+                            <td>{{ estudiante.nombres }}</td>
+                            <td>{{ estudiante.apellidos }}</td>
+                            <td>{{ estudiante.not1 }}</td>
+                            <td>{{ estudiante.not2 }}</td>
+                            <td>{{ estudiante.not3 }}</td>
+
+                            <td><i  class="fa fa-refresh text-success" aria-hidden="true" (click)="actualizar(estudiante)"></i></td>                            
+                            <td><i  class="fa fa-trash text-danger" aria-hidden="true" (click)="Delete(estudiante)"></i></td>
+                            <td><i [routerLink]="['/graficos', estudiante]"  class="fa fa-bar-chart text-warning" aria-hidden="true"></i></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
